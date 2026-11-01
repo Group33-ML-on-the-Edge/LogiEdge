@@ -1,0 +1,19 @@
+{
+  "n_calibration": 234,
+  "M1": {
+    "file": "m1_fp32.tflite",
+    "bytes": 5100,
+    "accuracy": 1.0,
+    "critical_recall": 1.0,
+    "n": 57,
+    "n_critical": 17
+  },
+  "M2": {
+    "file": "m2_ptq_int8.tflite",
+    "bytes": 3200,
+    "accuracy": 1.0,
+    "critical_recall": 1.0,
+    "n": 57,
+    "n_critical": 17
+  }
+}

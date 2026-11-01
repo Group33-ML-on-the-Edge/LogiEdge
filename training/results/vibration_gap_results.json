@@ -1,0 +1,93 @@
+{
+  "vibration_train_windows": 570,
+  "vibration_test_windows": 855,
+  "vibration_test_anomalous": 627,
+  "D1 onset model": {
+    "vibration_only_detected": 0.0,
+    "vibration_only_false_alarm": 0.0,
+    "val": {
+      "accuracy": 1.0,
+      "n": 57,
+      "correct": 57,
+      "ci95": [
+        0.936858991216536,
+        0.9999999999999999
+      ],
+      "confusion": [
+        [
+          23,
+          0,
+          0
+        ],
+        [
+          0,
+          17,
+          0
+        ],
+        [
+          0,
+          0,
+          17
+        ]
+      ],
+      "precision": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "recall": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "critical_recall": 1.0,
+      "critical_precision": 1.0
+    },
+    "extended_accuracy": 1.0,
+    "extended_critical_recall": 1.0
+  },
+  "with vibration-only runs added": {
+    "vibration_only_detected": 1.0,
+    "vibration_only_false_alarm": 0.0,
+    "val": {
+      "accuracy": 1.0,
+      "n": 57,
+      "correct": 57,
+      "ci95": [
+        0.936858991216536,
+        0.9999999999999999
+      ],
+      "confusion": [
+        [
+          23,
+          0,
+          0
+        ],
+        [
+          0,
+          17,
+          0
+        ],
+        [
+          0,
+          0,
+          17
+        ]
+      ],
+      "precision": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "recall": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "critical_recall": 1.0,
+      "critical_precision": 1.0
+    },
+    "extended_accuracy": 1.0,
+    "extended_critical_recall": 1.0
+  }
+}

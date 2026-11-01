@@ -1,0 +1,1368 @@
+{
+  "method": "numpy_structured_polynomial_decay",
+  "target_sparsity": 0.35,
+  "sizes": {
+    "before": [
+      6,
+      32,
+      16,
+      3
+    ],
+    "after": [
+      6,
+      21,
+      10,
+      3
+    ]
+  },
+  "pruning": {
+    "schedule": [
+      {
+        "step": 0,
+        "sparsity_target": 0.0,
+        "kept": [
+          32,
+          16
+        ]
+      },
+      {
+        "step": 100,
+        "sparsity_target": 0.0464,
+        "kept": [
+          31,
+          15
+        ]
+      },
+      {
+        "step": 200,
+        "sparsity_target": 0.0885,
+        "kept": [
+          29,
+          15
+        ]
+      },
+      {
+        "step": 300,
+        "sparsity_target": 0.1265,
+        "kept": [
+          28,
+          14
+        ]
+      },
+      {
+        "step": 400,
+        "sparsity_target": 0.1607,
+        "kept": [
+          27,
+          13
+        ]
+      },
+      {
+        "step": 500,
+        "sparsity_target": 0.1911,
+        "kept": [
+          26,
+          13
+        ]
+      },
+      {
+        "step": 600,
+        "sparsity_target": 0.2181,
+        "kept": [
+          25,
+          13
+        ]
+      },
+      {
+        "step": 700,
+        "sparsity_target": 0.2419,
+        "kept": [
+          24,
+          12
+        ]
+      },
+      {
+        "step": 800,
+        "sparsity_target": 0.2626,
+        "kept": [
+          24,
+          12
+        ]
+      },
+      {
+        "step": 900,
+        "sparsity_target": 0.2805,
+        "kept": [
+          23,
+          12
+        ]
+      },
+      {
+        "step": 1000,
+        "sparsity_target": 0.2958,
+        "kept": [
+          23,
+          11
+        ]
+      },
+      {
+        "step": 1100,
+        "sparsity_target": 0.3086,
+        "kept": [
+          22,
+          11
+        ]
+      },
+      {
+        "step": 1200,
+        "sparsity_target": 0.3193,
+        "kept": [
+          22,
+          11
+        ]
+      },
+      {
+        "step": 1300,
+        "sparsity_target": 0.3279,
+        "kept": [
+          22,
+          11
+        ]
+      },
+      {
+        "step": 1400,
+        "sparsity_target": 0.3348,
+        "kept": [
+          21,
+          11
+        ]
+      },
+      {
+        "step": 1500,
+        "sparsity_target": 0.34,
+        "kept": [
+          21,
+          11
+        ]
+      },
+      {
+        "step": 1600,
+        "sparsity_target": 0.3439,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 1700,
+        "sparsity_target": 0.3466,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 1800,
+        "sparsity_target": 0.3484,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 1900,
+        "sparsity_target": 0.3494,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2000,
+        "sparsity_target": 0.3499,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2100,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2160,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2170,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2180,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2190,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2200,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2210,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2220,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2230,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2240,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2250,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2260,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2270,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2280,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2290,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2300,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2310,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2320,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2330,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2340,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2350,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2360,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2370,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2380,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2390,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2400,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2410,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2420,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2430,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2440,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2450,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2460,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2470,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2480,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2490,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2500,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2510,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2520,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2530,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2540,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2550,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2560,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2570,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2580,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2590,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2600,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2610,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2620,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2630,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2640,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2650,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2660,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2670,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2680,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2690,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2700,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2710,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2720,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2730,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2740,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2750,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2760,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2770,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2780,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2790,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2800,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2810,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2820,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2830,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2840,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2850,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2860,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2870,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2880,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2890,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2900,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2910,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2920,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2930,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2940,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2950,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2960,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2970,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2980,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 2990,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3000,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3010,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3020,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3030,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3040,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3050,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3060,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3070,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3080,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3090,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3100,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3110,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3120,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3130,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3140,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3150,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3160,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3170,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3180,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3190,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3200,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3210,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3220,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3230,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3240,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3250,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3260,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3270,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3280,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3290,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3300,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3310,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3320,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3330,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3340,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3350,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3360,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3370,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3380,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3390,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3400,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3410,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3420,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3430,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3440,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3450,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3460,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3470,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3480,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3490,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3500,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3510,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3520,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3530,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3540,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3550,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3560,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3570,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3580,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      },
+      {
+        "step": 3590,
+        "sparsity_target": 0.35,
+        "kept": [
+          21,
+          10
+        ]
+      }
+    ],
+    "kept": [
+      21,
+      10
+    ],
+    "removed": [
+      11,
+      6
+    ],
+    "total_steps": 3600,
+    "end_step": 2160
+  },
+  "M3": {
+    "file": "m3_pruned_int8.tflite",
+    "bytes": 2768,
+    "accuracy": 1.0,
+    "critical_recall": 1.0,
+    "n": 57,
+    "n_critical": 17
+  }
+}

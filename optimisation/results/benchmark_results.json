@@ -1,0 +1,44 @@
+[
+  {
+    "variant": "M1",
+    "runs": 200,
+    "warmup": 10,
+    "mean_latency_ms": 0.0017533450000000001,
+    "p95_latency_ms": 0.00201305,
+    "file_bytes": 5100,
+    "file_kb": 5.1,
+    "accuracy_percent": 100.0,
+    "critical_recall_percent": 100.0,
+    "cpu_percent": 4.5,
+    "tdp_watts": 15.0,
+    "energy_mj": 0.001183507875
+  },
+  {
+    "variant": "M2",
+    "runs": 200,
+    "warmup": 10,
+    "mean_latency_ms": 0.016397270000000002,
+    "p95_latency_ms": 0.029405399999999995,
+    "file_bytes": 3200,
+    "file_kb": 3.2,
+    "accuracy_percent": 100.0,
+    "critical_recall_percent": 100.0,
+    "cpu_percent": 4.6,
+    "tdp_watts": 15.0,
+    "energy_mj": 0.011314116300000001
+  },
+  {
+    "variant": "M3",
+    "runs": 200,
+    "warmup": 10,
+    "mean_latency_ms": 0.012011639999999999,
+    "p95_latency_ms": 0.012990999999999996,
+    "file_bytes": 2768,
+    "file_kb": 2.768,
+    "accuracy_percent": 100.0,
+    "critical_recall_percent": 100.0,
+    "cpu_percent": 4.6,
+    "tdp_watts": 15.0,
+    "energy_mj": 0.008288031599999999
+  }
+]

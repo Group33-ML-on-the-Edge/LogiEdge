@@ -1,0 +1,7 @@
+variant,method,mean_latency_ms,p95_latency_ms,file_kb,file_kb_est_low,file_kb_est_high,payload_bytes,params,macs,accuracy_percent,critical_recall_percent,false_alarm_12sigma_percent,critical_recall_12sigma_percent,cpu_percent,tdp_watts,energy_mj,status
+M1 FP32 baseline,pending,,,,4.41,5.41,3212,803,752,100.0,100.0,4.18,95.43,,,,pending: run benchmark.py --tflite on a laptop; accuracy from the numpy reference of TFLite arithmetic
+M2 PTQ INT8,pending,,,,3.17,4.37,1568,803,752,100.0,100.0,6.59,96.13,,,,pending: run benchmark.py --tflite on a laptop; accuracy from the numpy reference of TFLite arithmetic
+M3 pruned + PTQ INT8,pending,,,,2.51,3.71,910,400,366,100.0,100.0,5.4,95.11,,,,pending: run benchmark.py --tflite on a laptop; accuracy from the numpy reference of TFLite arithmetic
+M1 (numpy),numpy-self-check (not TFLite),0.00536,0.00521,,,,,,,100.0,100.0,,,4.6,15.0,0.003701,harness check only: numpy emulation on the sandbox CPU; not comparable with TFLite
+M2 (numpy),numpy-self-check (not TFLite),0.03683,0.06393,,,,,,,100.0,100.0,,,4.6,15.0,0.025409,harness check only: numpy emulation on the sandbox CPU; not comparable with TFLite
+M3 (numpy),numpy-self-check (not TFLite),0.03535,0.04228,,,,,,,100.0,100.0,,,4.5,15.0,0.023858,harness check only: numpy emulation on the sandbox CPU; not comparable with TFLite

@@ -1,0 +1,44 @@
+[
+  {
+    "variant": "M1 (numpy)",
+    "runs": 200,
+    "warmup": 10,
+    "mean_latency_ms": 0.005364150000000001,
+    "p95_latency_ms": 0.0052055,
+    "file_bytes": null,
+    "file_kb": null,
+    "accuracy_percent": 100.0,
+    "critical_recall_percent": 100.0,
+    "cpu_percent": 4.6,
+    "tdp_watts": 15.0,
+    "energy_mj": 0.0037012635000000004
+  },
+  {
+    "variant": "M2 (numpy)",
+    "runs": 200,
+    "warmup": 10,
+    "mean_latency_ms": 0.036825025,
+    "p95_latency_ms": 0.06392975,
+    "file_bytes": null,
+    "file_kb": null,
+    "accuracy_percent": 100.0,
+    "critical_recall_percent": 100.0,
+    "cpu_percent": 4.6,
+    "tdp_watts": 15.0,
+    "energy_mj": 0.025409267249999996
+  },
+  {
+    "variant": "M3 (numpy)",
+    "runs": 200,
+    "warmup": 10,
+    "mean_latency_ms": 0.035345814999999996,
+    "p95_latency_ms": 0.04227845,
+    "file_bytes": null,
+    "file_kb": null,
+    "accuracy_percent": 100.0,
+    "critical_recall_percent": 100.0,
+    "cpu_percent": 4.5,
+    "tdp_watts": 15.0,
+    "energy_mj": 0.023858425124999996
+  }
+]

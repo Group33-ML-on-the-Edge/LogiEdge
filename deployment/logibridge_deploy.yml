@@ -1,0 +1,99 @@
+---
+# LogiBridge inference deployment (Task E2): exactly 7 tasks.
+#
+# Run twice with nothing changed in between: the second run reports changed=0.
+# That is why tasks 4 to 6 are written the way they are:
+#   * task 4 (stop) runs only when the model or reference file changed, and only reports "changed" if a
+#     container was actually running. Otherwise it would stop the container on every run and task 6 would
+#     restart it, giving changed=2 on a run that changed nothing.
+#   * task 5 (pull) pulls a tag that is not on the truck yet. Roll out a new image by bumping image_tag
+#     (for example v1 -> v2). Set force_pull=true only if you reuse a mutable tag.
+#   * task 6 (start) is declarative: it does nothing if the container is already running with this
+#     configuration, starts it if it was stopped by task 4, and recreates it if the image changed.
+#
+# Needs on the target: Docker, the Python "docker" package, and the collection:
+#   ansible-galaxy collection install community.docker
+#
+#   ansible-playbook -i inventory.ini logibridge_deploy.yml            # add -K if sudo needs a password
+#   ansible-playbook -i inventory.ini logibridge_deploy.yml -e image_tag=v2
+
+- name: Deploy the LogiBridge inference container
+  hosts: trucks
+  gather_facts: false
+  become: "{{ use_become | default(true) }}"
+  vars:
+    install_dir: /opt/logibridge
+    model_src: "{{ playbook_dir }}/model.tflite"
+    reference_src: "{{ playbook_dir }}/reference_dist.json"
+    container_name: logibridge-inference
+    registry: "localhost:5000"
+    image_name: "{{ registry }}/logiedge/inference"
+    image_tag: v1
+    force_pull: false
+    truck_id: T001
+    mqtt_host: localhost
+    mqtt_port: 1883
+    drift_score: normal_confidence
+
+  tasks:
+    - name: "1. Create /opt/logibridge directory if not present"
+      ansible.builtin.file:
+        path: "{{ install_dir }}"
+        state: directory
+        mode: "0755"
+
+    - name: "2. Copy new model file to /opt/logibridge/model.tflite"
+      ansible.builtin.copy:
+        src: "{{ model_src }}"
+        dest: "{{ install_dir }}/model.tflite"
+        mode: "0644"
+      register: model_copy
+
+    - name: "3. Copy updated reference_dist.json"
+      ansible.builtin.copy:
+        src: "{{ reference_src }}"
+        dest: "{{ install_dir }}/reference_dist.json"
+        mode: "0644"
+      register: reference_copy
+
+    - name: "4. Stop the running inference container if running"
+      ansible.builtin.shell: |
+        set -o pipefail
+        docker ps --quiet --filter "name=^{{ container_name }}$" --filter "status=running" | xargs --no-run-if-empty docker stop
+      args:
+        executable: /bin/bash
+      register: stop_result
+      changed_when: stop_result.stdout | trim | length > 0
+      when: model_copy is changed or reference_copy is changed
+
+    - name: "5. Pull updated container image from local Docker registry"
+      community.docker.docker_image:
+        name: "{{ image_name }}"
+        tag: "{{ image_tag }}"
+        source: pull
+        force_source: "{{ force_pull }}"
+
+    - name: "6. Start inference container with environment variables"
+      community.docker.docker_container:
+        name: "{{ container_name }}"
+        image: "{{ image_name }}:{{ image_tag }}"
+        state: started
+        restart_policy: unless-stopped
+        network_mode: host
+        volumes:
+          - "{{ install_dir }}:{{ install_dir }}:ro"
+        env:
+          MODEL_PATH: "{{ install_dir }}/model.tflite"
+          REFERENCE_DIST_PATH: "{{ install_dir }}/reference_dist.json"
+          DRIFT_SCORE: "{{ drift_score }}"
+          TRUCK_ID: "{{ truck_id }}"
+          MQTT_HOST: "{{ mqtt_host }}"
+          MQTT_PORT: "{{ mqtt_port | string }}"
+
+    - name: "7. Wait 15 seconds and verify container is running"
+      ansible.builtin.shell: |
+        sleep 15
+        docker inspect --format '{% raw %}{{.State.Running}}{% endraw %}' {{ container_name }}
+      register: verify_result
+      changed_when: false
+      failed_when: verify_result.stdout | trim != 'true'

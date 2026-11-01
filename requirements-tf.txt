@@ -1,0 +1,6 @@
+# Only for building the real .tflite files (Task F1) and the model conversion (Python 3.9-3.11).
+tensorflow==2.14.1
+tensorflow-model-optimization==0.8.0
+numpy==1.26.4
+psutil
+tflite-runtime==2.14.0

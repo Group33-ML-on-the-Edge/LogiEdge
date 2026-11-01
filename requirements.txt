@@ -1,0 +1,11 @@
+# Development and tests (Python 3.10+). The container has its own pins in inference/requirements.txt.
+numpy>=1.26,<2
+scipy
+scikit-learn
+matplotlib
+psutil
+pyyaml
+jinja2
+reportlab
+pypdf
+paho-mqtt>=2,<3

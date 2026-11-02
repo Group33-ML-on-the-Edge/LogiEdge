@@ -1,0 +1,51 @@
+{
+  "format": 1,
+  "bin_edges": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "n_windows": 300,
+  "epsilon": 0.0001,
+  "source": "300 clean Normal-class windows, simulator --anomaly none, seed 5001",
+  "model": {
+    "file": "model_weights.npz",
+    "sha256": "3013acfc9863"
+  },
+  "scores": {
+    "max_confidence": {
+      "counts": [
+        0,
+        0,
+        0,
+        300
+      ],
+      "proportions": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mean": 0.9999198211877672,
+      "min": 0.9987266824089778
+    },
+    "normal_confidence": {
+      "counts": [
+        0,
+        0,
+        0,
+        300
+      ],
+      "proportions": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mean": 0.9999198211877672,
+      "min": 0.9987266824089778
+    }
+  }
+}

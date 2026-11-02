@@ -1,0 +1,494 @@
+{
+  "inject_at": 1200.0,
+  "restore_at": 1500.0,
+  "total": 2900.0,
+  "score": "normal_confidence",
+  "monitors": {
+    "max_confidence": {
+      "events": [
+        {
+          "t": 90.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 150.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 210.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 270.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 330.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 390.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 450.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 510.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 570.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 630.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 690.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 750.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 810.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 870.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 930.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 990.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 1050.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1110.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1170.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1230.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1290.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1350.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1410.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1470.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1530.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1590.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1650.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1710.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1770.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1830.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1890.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1950.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2010.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2070.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2130.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2190.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2250.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2310.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2370.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2430.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2490.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2550.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2610.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2670.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2730.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2790.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2850.0,
+          "psi": 0.0,
+          "alert": false
+        }
+      ],
+      "peak_psi": 0.0,
+      "crossed_after_s": null,
+      "recovered_after_s": null,
+      "false_alarms_before_injection": 0
+    },
+    "normal_confidence": {
+      "events": [
+        {
+          "t": 90.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 150.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 210.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 270.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 330.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 390.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 450.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 510.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 570.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 630.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 690.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 750.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 810.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 870.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 930.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 990.0,
+          "psi": null,
+          "alert": false
+        },
+        {
+          "t": 1050.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1110.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1170.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1230.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 1290.0,
+          "psi": 0.3868886105705324,
+          "alert": true
+        },
+        {
+          "t": 1350.0,
+          "psi": 0.8654402171907396,
+          "alert": true
+        },
+        {
+          "t": 1410.0,
+          "psi": 1.3841691646750687,
+          "alert": true
+        },
+        {
+          "t": 1470.0,
+          "psi": 1.9330602844874378,
+          "alert": true
+        },
+        {
+          "t": 1530.0,
+          "psi": 2.2174537044394733,
+          "alert": true
+        },
+        {
+          "t": 1590.0,
+          "psi": 2.2174537044394733,
+          "alert": true
+        },
+        {
+          "t": 1650.0,
+          "psi": 2.2174537044394733,
+          "alert": true
+        },
+        {
+          "t": 1710.0,
+          "psi": 2.2174537044394733,
+          "alert": true
+        },
+        {
+          "t": 1770.0,
+          "psi": 2.2174537044394733,
+          "alert": true
+        },
+        {
+          "t": 1830.0,
+          "psi": 2.2174537044394733,
+          "alert": true
+        },
+        {
+          "t": 1890.0,
+          "psi": 2.2174537044394733,
+          "alert": true
+        },
+        {
+          "t": 1950.0,
+          "psi": 2.2174537044394733,
+          "alert": true
+        },
+        {
+          "t": 2010.0,
+          "psi": 2.2174537044394733,
+          "alert": true
+        },
+        {
+          "t": 2070.0,
+          "psi": 2.2174537044394733,
+          "alert": true
+        },
+        {
+          "t": 2130.0,
+          "psi": 2.2174537044394733,
+          "alert": true
+        },
+        {
+          "t": 2190.0,
+          "psi": 2.2174537044394733,
+          "alert": true
+        },
+        {
+          "t": 2250.0,
+          "psi": 2.0271496162259326,
+          "alert": true
+        },
+        {
+          "t": 2310.0,
+          "psi": 1.4737077764128197,
+          "alert": true
+        },
+        {
+          "t": 2370.0,
+          "psi": 0.9495025974474628,
+          "alert": true
+        },
+        {
+          "t": 2430.0,
+          "psi": 0.46300046391797245,
+          "alert": true
+        },
+        {
+          "t": 2490.0,
+          "psi": 0.04569168819981713,
+          "alert": false
+        },
+        {
+          "t": 2550.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2610.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2670.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2730.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2790.0,
+          "psi": 0.0,
+          "alert": false
+        },
+        {
+          "t": 2850.0,
+          "psi": 0.0,
+          "alert": false
+        }
+      ],
+      "peak_psi": 2.2174537044394733,
+      "crossed_after_s": 90.0,
+      "recovered_after_s": 990.0,
+      "false_alarms_before_injection": 0
+    }
+  }
+}

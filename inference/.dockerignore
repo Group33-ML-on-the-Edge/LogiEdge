@@ -1,0 +1,8 @@
+# Send only what the Dockerfile copies, so unrelated edits never reach the build context.
+*
+!requirements.txt
+!preprocessing.py
+!inference_service.py
+!drift_monitor.py
+!training_stats.npy
+!model.tflite

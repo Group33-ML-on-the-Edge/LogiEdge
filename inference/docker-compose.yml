@@ -1,0 +1,26 @@
+# Local demo: a Mosquitto broker plus the inference container.
+# Run the simulator on the host, publishing to localhost:1883:
+#   python3 simulator.py --anomaly combined --speed 10
+# Watch the results:
+#   mosquitto_sub -h localhost -t 'logibridge/trucks/#' -v
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+
+  inference:
+    build: .
+    image: logiedge/inference:latest
+    depends_on:
+      - mosquitto
+    environment:
+      MQTT_HOST: mosquitto
+      TRUCK_ID: T001
+      # To try another variant without rebuilding, uncomment both lines below:
+      # MODEL_PATH: /models/model_onset.tflite
+    # volumes:
+    #   - ./models:/models:ro
+    restart: unless-stopped

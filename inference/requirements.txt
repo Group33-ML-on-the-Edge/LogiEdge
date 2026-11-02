@@ -1,0 +1,16 @@
+# Versions checked against PyPI listings and project documentation (see the D2 report, Section 7).
+# Nothing here was installed or built in the authoring environment.
+#
+# numpy 1.26.4: has Python 3.11 wheels for x86_64 and aarch64 (manylinux_2_17). Keep it below 2.0:
+#   tflite-runtime 2.14.0 (released Oct 2023) predates NumPy 2.0, so it was built against NumPy 1.x.
+numpy==1.26.4
+# paho-mqtt 2.1.0: pure Python, latest release, tested up to Python 3.12. The code uses the 2.x callback API
+#   (CallbackAPIVersion.VERSION2) and falls back to the 1.x API if an older paho is installed.
+paho-mqtt==2.1.0
+# tflite-runtime 2.14.0: last release. Python 3.11 wheels exist for x86_64, aarch64 and armv7l, and it needs
+#   numpy >= 1.23.2. The aarch64 wheel needs glibc 2.34 or newer, which python:3.11-slim (Debian 13) has.
+#   Convert the model with TensorFlow 2.14 (Python 3.9 to 3.11) so its operator versions match this runtime:
+#   a newer converter can write FULLY_CONNECTED version 12, which older runtimes reject.
+#   Alternative if tflite-runtime is unavailable for your platform: ai-edge-litert (cp311 wheels for x86_64
+#   and aarch64; inference_service.py already tries it). Replace the line below; image size grows (x86_64 wheel 11.2 MB).
+tflite-runtime==2.14.0

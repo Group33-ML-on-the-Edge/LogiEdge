@@ -11,44 +11,177 @@
 
 ---
 
-# Part A — Prepare the computer (one time)
+# Part A — Windows setup, launching WSL, and preparing Ubuntu
 
-## Step 1. Install the required software
+## Step 1. Install WSL 2 and Ubuntu on Windows (first-time setup only)
 
-On **Windows**, install:
-1. **Git** — to clone the repository.
-2. **WSL2 with Ubuntu** — to run the Linux commands below.
-3. **Docker Desktop** — enable *Settings → Resources → WSL Integration* for Ubuntu.
-4. A terminal such as Windows Terminal or the Ubuntu application.
+**These commands are Windows PowerShell commands. Do not run them in Ubuntu.**
 
-Open **Ubuntu (WSL)**. Install command-line utilities:
+1. Turn on your Windows computer.
+2. Click **Start**, search for **PowerShell**, right-click it and choose **Run as administrator**.
+3. To install WSL and Ubuntu, enter:
+
+```powershell
+wsl --install -d Ubuntu
+```
+
+4. Wait for installation. **Restart Windows if requested**.
+5. On first launch, Ubuntu will ask you to create a **Linux username and password**. This is different from your Windows login. The password does not display while you type; this is normal.
+6. Open PowerShell again and verify:
+
+```powershell
+wsl --status
+wsl -l -v
+```
+
+**Expected:** Ubuntu is listed and `VERSION` is `2`. Its `STATE` may be `Stopped` or `Running`. If Ubuntu is listed as version 1, consult Microsoft's WSL migration guidance before continuing. If WSL is already installed and Ubuntu is version 2, **skip the installation command**.
+
+> Windows 10/11 with a supported WSL configuration and hardware virtualization enabled is required. If installation reports a virtualization or Windows-feature error, resolve that Windows setup issue before proceeding.
+
+## Step 2. Start WSL Ubuntu — do this at the beginning of EVERY project session
+
+**Every time you restart Windows, open a new terminal, or return to the project later, start here:**
+
+1. Click **Start** → open **PowerShell** or **Windows Terminal**. For everyday use, do **not** run as administrator.
+2. At the Windows prompt, run:
+
+```powershell
+wsl
+```
+
+This starts the default WSL distribution. To select Ubuntu explicitly, use `wsl -d Ubuntu` instead.
+
+**Before:**
+
+```text
+PS C:\Users\Developer>
+```
+
+**After:**
+
+```text
+developer@LAPTOP:~$
+```
+
+**Stop here if the prompt still begins with `PS`.** Linux commands such as `sudo`, `source`, `make`, and the commands in the remaining sections must be run **inside WSL Ubuntu**. You only run `wsl` **once per terminal session**, not before every command.
+
+To exit Ubuntu, enter `exit`. The next time you open PowerShell, run `wsl` again.
+
+### Daily quick start (after first-time setup)
+
+Every subsequent day, you normally need only:
+
+**Windows PowerShell:**
+
+```powershell
+wsl
+```
+
+**Inside Ubuntu — new developer's clone:**
+
+```bash
+cd ~/logibridge
+```
+
+**Inside Ubuntu — Group 33's existing D: drive checkout (alternative):**
+
+```bash
+cd /mnt/d/BITS/Classes/sem3/MLE/assignment/New_MLE_Assignment/New_MLE_Assignment/logibridge/logibridge
+```
+
+Then run the desired project command, for example `make test`. **Do not recreate `.venv` or reinstall packages every day.** If your clone has a different directory name, use that name instead of `~/logibridge`.
+
+## Step 3. Check the Linux tools and Docker
+
+In **Ubuntu**:
 
 ```bash
 sudo apt update
-sudo apt install -y git make curl ca-certificates
-```
+sudo apt install -y git make ca-certificates
 
-You need **Python 3.11 with venv support**. Some Ubuntu releases have another default Python version; install Python 3.11 from an appropriate supported source for your Ubuntu release. Verify it before proceeding:
-
-```bash
-python3.11 --version
-docker --version
-docker compose version
 git --version
 make --version
+python3.11 --version
 ```
 
-**Expected:** Python reports `3.11.x`; Docker and Compose report installed versions. Docker commands should work without `sudo` for the user running the demo:
+Git downloads the source; Make runs the project's build commands. If `python3.11` is missing, install a supported Python 3.11 interpreter **and its venv module** for your Ubuntu release before continuing. Do not substitute Python 3.14 for this project's validated TensorFlow environment.
+
+Install **Docker Desktop on Windows** and enable **Settings → Resources → WSL Integration → Ubuntu**. Start Docker Desktop, then check in **Ubuntu**:
 
 ```bash
+docker --version
+docker compose version
 docker info >/dev/null && echo "Docker access OK"
 ```
 
-If Docker access fails, start Docker Desktop, enable WSL integration and restart the Ubuntu terminal. Do not continue to the Docker section until this succeeds.
+**Expected:** Docker version output and `Docker access OK`. If Docker access fails, check WSL integration and restart the Ubuntu terminal. You can postpone Docker installation until the Docker section, but it must be working before `make image`.
 
-## Step 2. Install Ansible
+## Step 4. Clone the project or open the existing folder
 
-Install Ansible using your Ubuntu package manager or a separate Python environment, and the Docker collection:
+**New developer — recommended:** Clone into Ubuntu's home directory for simpler permissions and better performance. In **Ubuntu**:
+
+```bash
+cd ~
+git clone <PRIVATE_GITHUB_REPOSITORY_URL>
+cd <CLONED_REPOSITORY_DIRECTORY>
+```
+
+Replace both placeholders with the real private GitHub URL and the actual cloned directory name.
+
+**Existing Group 33 Windows checkout — alternative:** If the project is already on drive D:, use the WSL path:
+
+```bash
+cd /mnt/d/BITS/Classes/sem3/MLE/assignment/New_MLE_Assignment/New_MLE_Assignment/logibridge/logibridge
+```
+
+The Windows path `D:\BITS\...` becomes `/mnt/d/BITS/...` inside WSL. **Choose one of the two options; do not run both.**
+
+Verify that you are at the repository root:
+
+```bash
+pwd
+ls -la
+```
+
+**Expected:** `README.md`, `Makefile`, `requirements.txt`, `requirements-tf.txt`, `training/`, `inference/`, `deployment/`, `tests/` and other project folders. All later commands start here unless a step explicitly says `cd .work`.
+
+## Step 5. Create the Python virtual environment in Ubuntu
+
+The virtual environment belongs **inside the project directory** and must be created using Ubuntu's Python, not Windows Python:
+
+```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+python --version
+which python
+```
+
+**Expected:** Your terminal prompt begins with `(.venv)`; Python reports `3.11.x`, and `which python` ends in `.venv/bin/python`.
+
+Whenever you open a **new terminal** for this project, return to the repository folder and run:
+
+```bash
+source .venv/bin/activate
+```
+
+If you get `No module named venv`, install the Python 3.11 venv support package for your Ubuntu release and rerun the creation command. The `.venv/` directory is local and **must not be committed to Git**.
+
+## Step 6. Install Python dependencies
+
+With `(.venv)` visible:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pip install -r requirements-tf.txt
+python -c "import tensorflow as tf; print('TensorFlow:', tf.__version__)"
+```
+
+**Expected in the validated environment:** TensorFlow `2.14.1`. The second requirements file installs TensorFlow-related packages for real `.tflite` model creation. Stop if imports fail; do not continue to model training with an incomplete environment.
+
+## Step 7. Install Ansible for the deployment demonstration
+
+In **Ubuntu** (Ansible can be installed later, before the Ansible section):
 
 ```bash
 sudo apt install -y ansible
@@ -56,43 +189,9 @@ ansible-galaxy collection install community.docker
 ansible --version
 ```
 
-**Expected:** Ansible prints its version. If the installed Ansible is too old for the Docker collection, upgrade it using a compatible environment. The deployment playbook also requires a Python Docker SDK in the interpreter used by Ansible; install `docker` for that interpreter if Ansible reports `No module named docker`.
+**Expected:** Ansible prints its version. The earlier successful run used Ansible core 2.20.1. If the Docker collection or playbook reports missing Python Docker SDK, install it for the interpreter Ansible actually uses. The deployment also requires Docker access and permissions for `/opt/logibridge`.
 
-## Step 3. Clone the GitHub repository
-
-Replace the URL with the **private repository URL** provided by Group 33:
-
-```bash
-git clone <PRIVATE_GITHUB_REPOSITORY_URL>
-cd <CLONED_REPOSITORY_DIRECTORY>
-pwd
-ls
-```
-
-**Expected at the project root:** `README.md`, `Makefile`, `requirements.txt`, `requirements-tf.txt`, `data_pipeline/`, `training/`, `inference/`, `monitoring/`, `optimisation/`, `deployment/`, `tests/`, `reports/`.
-
-> All commands below start from this **project root**, unless a step explicitly says `cd .work`. Keep the terminal in this directory between steps.
-
-## Step 4. Create the Python environment
-
-```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-python -m pip install -r requirements-tf.txt
-```
-
-Check the core packages:
-
-```bash
-python --version
-python -c "import tensorflow as tf; import tensorflow_model_optimization as tfmot; print('TensorFlow', tf.__version__, 'TFMOT', tfmot.__version__)"
-```
-
-**Expected in the validated setup:** Python 3.11, TensorFlow 2.14.1 and TFMOT 0.8.0. Package-version warnings may occur on other systems; stop and resolve import errors before training.
-
-## Step 5. Understand the special `.work/` directory
+## Step 8. Understand the special `.work/` directory
 
 The source is organized in folders, but scripts were developed to run together in one directory. The Makefile runs `tools/stage.sh` to copy files into a **temporary flat workspace** called `.work/`.
 
@@ -110,7 +209,7 @@ ls .work | head
 
 # Part B — Build the sensor data and train the model
 
-## Step 6. See simulated sensor messages (Task C1)
+## Step 9. See simulated sensor messages (Task C1)
 
 ```bash
 make simulate
@@ -128,7 +227,7 @@ python data_pipeline/simulator.py --anomaly temp_drift --dry-run --duration 60 -
 
 **Interpretation:** These are *synthetic* sensor readings, not real truck measurements.
 
-## Step 7. Generate normalisation statistics (Task C2)
+## Step 10. Generate normalisation statistics (Task C2)
 
 ```bash
 make stats
@@ -140,7 +239,7 @@ ls -lh data_pipeline/training_stats.npy
 
 **Check:** `training_stats.npy` exists. The model must use these same statistics during inference. **Do not recompute them from live faulty data**; that can hide anomalies.
 
-## Step 8. Generate the labelled training dataset (Task D1)
+## Step 11. Generate the labelled training dataset (Task D1)
 
 ```bash
 make dataset
@@ -152,7 +251,7 @@ ls -lh training/data/
 
 **Check:** `training_dataset.npz` should exist under `training/data/`. The earlier validated dataset contained **291 windows** (117 Normal, 87 Warning, 87 Critical); exact counts can change if the simulator or generation settings change.
 
-## Step 9. Train the neural network (Task D1)
+## Step 12. Train the neural network (Task D1)
 
 ```bash
 make train
@@ -166,7 +265,7 @@ ls -lh training/models/
 
 **Interpretation:** High accuracy on synthetic, overlapping windows is not proof of generalisation to real refrigerated trucks.
 
-## Step 10. Create all three real TensorFlow Lite models (Task F1)
+## Step 13. Create all three real TensorFlow Lite models (Task F1)
 
 ```bash
 make tf-variants
@@ -188,7 +287,7 @@ Previously recorded sizes: **M1 5,100 bytes**, **M2 3,200 bytes**, **M3 2,768 by
 
 # Part C — Test and benchmark the project
 
-## Step 11. Run the automated tests
+## Step 14. Run the automated tests
 
 ```bash
 make test
@@ -199,7 +298,7 @@ echo "Test exit code: $?"
 
 If tests fail, inspect the traceback rather than assuming the project passed because it previously passed on another machine.
 
-## Step 12. Benchmark the three models (Tasks F2/F3)
+## Step 15. Benchmark the three models (Tasks F2/F3)
 
 ```bash
 make benchmark-tflite
@@ -244,7 +343,7 @@ make collect
 
 # Part D — Run live MQTT inference in Docker
 
-## Step 13. Build the inference Docker image (Task D2)
+## Step 16. Build the inference Docker image (Task D2)
 
 ```bash
 make image
@@ -255,7 +354,7 @@ docker image ls logiedge/inference
 
 **Check:** The image appears in `docker image ls`. The Dockerfile places `COPY model.tflite .` last so changing only the model can reuse earlier layers.
 
-## Step 14. Start the Mosquitto broker
+## Step 17. Start the Mosquitto broker
 
 The repository includes a Compose file for the broker and inference service. For the simplest first run, start **both services together**, using the staged build context:
 
@@ -271,7 +370,7 @@ cd ..
 
 > If port 1883 is already occupied or a previous `logibridge-inference` container is running, inspect `docker ps` and stop only the conflicting **project** containers you recognize. Do not remove unrelated Docker containers.
 
-## Step 15. Publish a simulated fault to MQTT
+## Step 18. Publish a simulated fault to MQTT
 
 Open a **second Ubuntu terminal**, go to the repository root and activate `.venv`:
 
@@ -287,7 +386,7 @@ python data_pipeline/simulator.py \
 
 **What happens:** Simulates normal operation followed by a combined temperature/vibration fault. The `--speed 10` flag accelerates simulated time.
 
-## Step 16. Watch the predictions
+## Step 19. Watch the predictions
 
 In the first terminal:
 
@@ -326,7 +425,7 @@ cd ..
 
 # Part E — Drift detection (Task E1)
 
-## Step 17. Run the PSI monitoring demonstration
+## Step 20. Run the PSI monitoring demonstration
 
 ```bash
 make demo-drift
@@ -346,7 +445,7 @@ Previously verified: anomaly injected at simulated **20:00**, first alert at **2
 
 # Part F — Docker OTA update demonstration (Tasks D2/E3)
 
-## Step 18. Prove that only the model layer changes
+## Step 21. Prove that only the model layer changes
 
 **Do not run `make ota-demo` directly after staging without preparing two distinct models.** It can otherwise compare identical files and incorrectly show 10/10 identical layers.
 
@@ -378,7 +477,7 @@ cd ..
 
 # Part G — Ansible deployment and idempotency (Task E2)
 
-## Step 19. Build and push the image to the local demo registry
+## Step 22. Build and push the image to the local demo registry
 
 ```bash
 make image
@@ -393,7 +492,7 @@ cd ..
 
 **Check:** The image push completes. The registry container should be visible in `docker ps`.
 
-## Step 20. Run the Ansible playbook twice
+## Step 23. Run the Ansible playbook twice
 
 The playbook deploys to `localhost`, and the two-run script checks idempotency:
 
@@ -420,7 +519,7 @@ docker ps
 docker logs --tail 40 logibridge-inference
 ```
 
-**Check:** The inference service loads its model and connects to MQTT. This Ansible deployment uses host networking and therefore expects a broker reachable at `localhost:1883`. If you stopped the Compose broker in Step 16, start a broker before expecting MQTT connection:
+**Check:** The inference service loads its model and connects to MQTT. This Ansible deployment uses host networking and therefore expects a broker reachable at `localhost:1883`. If you stopped the Compose broker in Step 19, start a broker before expecting MQTT connection:
 
 ```bash
 docker compose -f inference/docker-compose.yml up -d mosquitto
@@ -432,7 +531,7 @@ Do not start a second broker if one already occupies port 1883.
 
 # Part H — Review the assignment deliverables
 
-## Step 21. Check the final evidence
+## Step 24. Check the final evidence
 
 | Assignment area | Where to find it | What to show or explain |
 |---|---|---|
@@ -450,7 +549,7 @@ Do not start a second broker if one already occupies port 1883.
 
 **Do not assume all artifacts are ready just because a file exists.** Review the final PDF for required diagrams and accurate figures, and ensure the video URL is real and accessible.
 
-## Step 22. Commit the files needed for another developer
+## Step 25. Commit the files needed for another developer
 
 **Commit:** source code, Makefile, README, both requirements files, scripts, tests, architecture/hardware documents, frozen statistics, model weights, all three `.tflite` variants, `inference/model.tflite`, drift reference/results, benchmark CSV/JSON/chart, report and demo link.
 
